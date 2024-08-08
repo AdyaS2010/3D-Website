@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+a-scene {
+  background-color: #f0f0f0;
+}
+
+a-box {
+  animation: spin 10s linear infinite;
+}
+
+a-sphere {
+  animation: bounce 5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.5);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Skybox Styling */
+.sky {
+  background-color: #f0f0f0;
+  opacity: 0.5;
+}
