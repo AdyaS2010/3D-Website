@@ -4,23 +4,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Cool 3D Website</title>
+  <title>VR Escape Room</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
 
 <body>
   <a-scene>
-    <a-sky class="sky" src="https://cdn.glitch.com/059936e4-a6e5-4745-a7a5-10c6d6972182%2Fsky.jpg"></a-sky> 
-    <a-box position="0 1 -5" color="lightblue"></a-box>
-    <a-ambient-light color="#444"></a-ambient-light>
-    <a-directional-light position="1 1 1" color="#fff"></a-directional-light> 
+    <a-sky color="#000080"></a-sky>  <!-- Dark blue sky -->
 
-    <!-- Add more elements -->
-    <a-sphere position="-2 1 -3" radius="1.5" color="#ff0000"></a-sphere>
-    <a-cylinder position="2 0.5 -3" radius="0.5" height="2" color="#00ff00"></a-cylinder>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#ccc"></a-plane> 
+    <a-box position="0 1.5 -3" width="4" height="2" depth="1" color="#666666">
+      <a-text value="Escape Room" position="0 0.5 0.5" color="white" align="center"></a-text>
+    </a-box> <!-- Room wall with a title -->
+
+    <a-box position="0 1 -4" width="2" height="2" depth="0.1" color="#FF0000" id="lockedDoor">
+      <a-text value="Locked" position="0 0 0.1" color="white" align="center"></a-text>
+    </a-box> <!-- A locked door -->
+
+    <a-box position="0 1 -1" width="1" height="1" depth="0.1" color="#00FF00" id="key">
+      <a-text value="Key" position="0 0 0.1" color="white" align="center"></a-text>
+    </a-box>  <!-- A key that unlocks the door -->
+
+    <a-entity position="0 1.5 0" rotation="0 90 0">
+      <a-plane position="0 0 -0.5" width="3" height="2" src="#floorTexture" />
+    </a-entity> <!-- Floor with texture (you'll need to add a floor texture) -->
+
+    <a-entity position="0 1.5 0" rotation="0 0 0">
+      <a-plane position="0 0 0.5" width="3" height="2" src="#wallTexture" />
+    </a-entity> <!-- Wall with texture (you'll need to add a wall texture) -->
+
+    <a-entity id="player" position="0 1.7 0">
+      <a-camera look-controls wasd-controls></a-camera>
+    </a-entity> <!-- Player with camera controls -->
+
   </a-scene>
+
   <script src="script.js"></script>
 </body>
 
