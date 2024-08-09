@@ -25,6 +25,10 @@
       <a-text value="Key" position="0 0 0.1" color="white" align="center"></a-text>
     </a-box>  <!-- A key that unlocks the door -->
 
+     <a-box position="1 1 -2" width="0.5" height="0.5" depth="0.2" color="#FF0000" id="button">
+       <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
+     </a-box> 
+
     <a-entity position="0 1.5 0" rotation="0 90 0">
       <a-plane position="0 0 -0.5" width="3" height="2" src="#floorTexture" />
     </a-entity> <!-- Floor with texture (you'll need to add a floor texture) -->
@@ -34,8 +38,10 @@
     </a-entity> <!-- Wall with texture (you'll need to add a wall texture) -->
 
     <a-entity id="player" position="0 1.7 0">
-      <a-camera look-controls wasd-controls></a-camera>
+      <a-camera look-controls wasd-controls raycaster></a-camera>
     </a-entity> <!-- Player with camera controls -->
+
+     <a-directional-light position="1 1 1" color="#fff"></a-directional-light>
 
   </a-scene>
 
