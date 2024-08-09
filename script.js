@@ -40,3 +40,22 @@ function unlockDoor() {
 // Add event listeners for clicking on the key and door
 key.addEventListener('click', pickUpKey);
 lockedDoor.addEventListener('click', unlockDoor);
+
+// Event listener for player clicking on the key
+ player.addEventListener('click', function (event) {
+   if (event.detail.intersectedEl.id === 'key') { 
+     pickUpKey();
+   }
+ });
+
+ // Get a reference to the button
+ const button = document.querySelector('#button');
+
+ // Function to handle clicking on the button
+ function pressButton() {
+   console.log("Button pressed!");
+   // Add logic to change the scene (e.g., move an object, reveal a clue, etc.)
+ }
+
+ // Add event listener for clicking on the button
+ button.addEventListener('click', pressButton);
