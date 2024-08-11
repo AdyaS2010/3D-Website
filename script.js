@@ -14,6 +14,9 @@ const colorTarget = document.querySelector('#colorTarget');
 const sphere1 = document.querySelector('#sphere1');
 const sphere2 = document.querySelector('#sphere2');
 const sphere3 = document.querySelector('#sphere3');
+const codeLock = document.querySelector('#codeLock');
+const codeInput = document.querySelector('#codeInput');
+const codeButton = document.querySelector('#codeButton');
 const escapeMessage = document.createElement('a-text'); 
 
 // Check if the key is picked up 
@@ -21,6 +24,7 @@ let hasKey = false;
 let puzzle1Solved = false; 
 let puzzle2Solved = false;
 let puzzle3Solved = false;
+let puzzle4Solved = false;
 
 // Function to handle clicking on the key
 function pickUpKey() {
@@ -37,7 +41,7 @@ function pickUpKey() {
 // Function to handle clicking on the door
 function unlockDoor() {
   // Check if the player has the key and the puzzle is solved
-  if (hasKey && puzzle1Solved && puzzle2Solved && puzzle3Solved) {
+  if (hasKey && puzzle1Solved && puzzle2Solved && puzzle3Solved && puzzle4Solved) {
     // Open the door 
     lockedDoor.setAttribute('color', '#00FF00'); 
 
@@ -85,12 +89,26 @@ function pressButton3() {
   }
 }
 
+// Function to handle clicking on the code button
+function enterCode() {
+  // Check if the code is correct (replace with your desired logic)
+  if (codeInput.getAttribute('value') === '42') {
+    // Unlock the code lock (e.g., change its color)
+    codeLock.setAttribute('color', '#00FF00'); 
+    puzzle4Solved = true;
+  } else {
+    // Provide feedback that the code is incorrect (e.g., shake the code lock)
+    console.log("Incorrect code!");
+  }
+}
+
 // Add event listeners for clicking on the key and door
 key.addEventListener('click', pickUpKey);
 lockedDoor.addEventListener('click', unlockDoor);
 button1.addEventListener('click', pressButton1);
 button2.addEventListener('click', pressButton2);
 button3.addEventListener('click', pressButton3);
+codeButton.addEventListener('click', enterCode);
 
 // Event listener for player clicking on the key
 player.addEventListener('click', function (event) {
