@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>VR Escape Room</title>
+  <title>VR Escape Room: The Lost Laboratory</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
@@ -14,32 +14,57 @@
     <a-sky color="#000080"></a-sky>  <!-- Dark blue sky -->
 
     <a-box position="0 1.5 -3" width="4" height="2" depth="1" color="#666666">
-      <a-text value="Escape Room" position="0 0.5 0.5" color="white" align="center"></a-text>
+      <a-text value="The Lost Laboratory" position="0 0.5 0.5" color="white" align="center"></a-text>
     </a-box> <!-- Room wall with a title -->
 
     <a-box position="0 1 -4" width="2" height="2" depth="0.1" color="#FF0000" id="lockedDoor">
       <a-text value="Locked" position="0 0 0.1" color="white" align="center"></a-text>
     </a-box> <!-- A locked door -->
 
-    <a-box position="0 1 -1" width="1" height="1" depth="0.1" color="#00FF00" id="key">
+    <!-- Key (Hidden) -->
+    <a-box position="2 1 -3" width="0.5" height="0.5" depth="0.1" color="#FF0000" id="hiddenKey" visible="false">
       <a-text value="Key" position="0 0 0.1" color="white" align="center"></a-text>
-    </a-box>  <!-- A key that unlocks the door -->
+    </a-box>
 
-    <a-box position="1 1 -2" width="0.5" height="0.5" depth="0.2" color="#FF0000" id="button">
+    <!-- Puzzle 1: Rotating Cylinder -->
+    <a-entity id="rotatingObject" position="0 0.5 -3" rotation="0 0 0">
+      <a-cylinder radius="0.3" height="1" color="#00ff00"></a-cylinder>
+    </a-entity>
+    <a-box position="1 1 -2" width="0.5" height="0.5" depth="0.2" color="#FF0000" id="button1">
        <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
      </a-box> 
 
+    <!-- Puzzle 2:  Hidden Lever -->
+    <a-entity id="lever" position="1.5 0.5 -3" rotation="0 0 0" scale="1 0.2 0.2">
+      <a-box width="1" depth="0.1" height="0.2" color="#888" position="0 0 0"></a-box>
+      <a-sphere radius="0.1" color="#FF0000" position="0.5 0 0"></a-sphere>
+    </a-entity>
+    <a-box position="-1 1 -2" width="0.5" height="0.5" depth="0.2" color="#FF0000" id="button2">
+       <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
+     </a-box> 
+
+    <!-- Puzzle 3:  Color Matching -->
+    <a-box position="-2 1 -2" width="0.5" height="0.5" depth="0.2" color="#FF0000" id="button3">
+       <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
+     </a-box> 
+    <a-box position="0 0.5 -2" width="1" height="0.5" depth="0.2" color="#0000FF" id="colorTarget"></a-box>
+    <a-entity id="colorMatch" position="-1 0 -3" rotation="0 0 0" scale="0.5 0.5 0.5">
+      <a-sphere radius="0.2" color="#FF0000" id="sphere1"></a-sphere>
+      <a-sphere radius="0.2" color="#00FF00" id="sphere2"></a-sphere>
+      <a-sphere radius="0.2" color="#0000FF" id="sphere3"></a-sphere>
+    </a-entity>
+
+    <!-- Floor and Walls -->
     <a-entity position="0 1.5 0" rotation="0 90 0">
       <a-plane position="0 0 -0.5" width="3" height="2" src="#floorTexture" />
-    </a-entity> <!-- Floor with texture (you'll need to add a floor texture) -->
-
+    </a-entity> 
     <a-entity position="0 1.5 0" rotation="0 0 0">
       <a-plane position="0 0 0.5" width="3" height="2" src="#wallTexture" />
-    </a-entity> <!-- Wall with texture (you'll need to add a wall texture) -->
+    </a-entity> 
 
     <a-entity id="player" position="0 1.7 0">
       <a-camera look-controls wasd-controls raycaster></a-camera>
-    </a-entity> <!-- Player with camera controls -->
+    </a-entity> 
 
     <a-directional-light position="1 1 1" color="#fff"></a-directional-light>
 
