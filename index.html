@@ -54,6 +54,15 @@
       <a-sphere radius="0.2" color="#0000FF" id="sphere3"></a-sphere>
     </a-entity>
 
+    <!-- Puzzle 4: Code Lock -->
+    <a-box position="0 0.5 -5" width="1" height="0.5" depth="0.2" color="#888" id="codeLock">
+      <a-text value="Enter Code: " position="0 0 0.1" color="white" align="left"></a-text>
+      <a-text value="1234" position="0 0 0.3" color="white" align="left" id="codeInput"></a-text> 
+    </a-box>
+    <a-box position="0.5 0.2 -5" width="0.3" height="0.2" depth="0.1" color="#FF0000" id="codeButton">
+      <a-text value="Enter" position="0 0 0.1" color="white" align="center"></a-text> 
+    </a-box>
+
     <!-- Floor and Walls -->
     <a-entity position="0 1.5 0" rotation="0 90 0">
       <a-plane position="0 0 -0.5" width="3" height="2" src="#floorTexture" />
@@ -67,6 +76,7 @@
     </a-entity> 
 
     <a-directional-light position="1 1 1" color="#fff"></a-directional-light>
+    <a-ambient-light color="#444"></a-ambient-light>  <!-- Added ambient light -->
 
   </a-scene>
 
