@@ -4,12 +4,23 @@
 const key = document.querySelector('#key');
 const lockedDoor = document.querySelector('#lockedDoor');
 const player = document.querySelector('#player');
-const button = document.querySelector('#button');
-const escapeMessage = document.createElement('a-text'); // Create the escape message
+const button1 = document.querySelector('#button1');
+const button2 = document.querySelector('#button2');
+const button3 = document.querySelector('#button3');
+const rotatingObject = document.querySelector('#rotatingObject');
+const hiddenKey = document.querySelector('#hiddenKey');
+const lever = document.querySelector('#lever');
+const colorTarget = document.querySelector('#colorTarget');
+const sphere1 = document.querySelector('#sphere1');
+const sphere2 = document.querySelector('#sphere2');
+const sphere3 = document.querySelector('#sphere3');
+const escapeMessage = document.createElement('a-text'); 
 
 // Check if the key is picked up 
 let hasKey = false;
-let puzzleSolved = false; // Track if the puzzle is solved
+let puzzle1Solved = false; 
+let puzzle2Solved = false;
+let puzzle3Solved = false;
 
 // Function to handle clicking on the key
 function pickUpKey() {
@@ -26,7 +37,7 @@ function pickUpKey() {
 // Function to handle clicking on the door
 function unlockDoor() {
   // Check if the player has the key and the puzzle is solved
-  if (hasKey && puzzleSolved) {
+  if (hasKey && puzzle1Solved && puzzle2Solved && puzzle3Solved) {
     // Open the door 
     lockedDoor.setAttribute('color', '#00FF00'); 
 
@@ -41,25 +52,49 @@ function unlockDoor() {
     document.querySelector('a-scene').appendChild(escapeMessage); 
   } else {
     // Optionally provide feedback to the player 
-    console.log("The door is locked! Find the key and solve the puzzle.");
+    console.log("The door is locked! Find the key and solve the puzzles.");
   }
 }
 
-// Function to handle clicking on the button
-function pressButton() {
-  console.log("Button pressed!");
-  // Add logic to change the scene (e.g., move an object, reveal a clue, etc.)
-  puzzleSolved = true; // Mark the puzzle as solved
+// Function to handle clicking on button 1
+function pressButton1() {
+  console.log("Button 1 pressed!");
+  // Rotate the cylinder
+  rotatingObject.setAttribute('animation', 'property: rotation; to: 0 360 0; dur: 5000; easing: linear; loop: true'); 
+  puzzle1Solved = true; 
+}
+
+// Function to handle clicking on button 2
+function pressButton2() {
+  console.log("Button 2 pressed!");
+  // Move the lever up
+  lever.setAttribute('position', '1.5 1 -3'); 
+  puzzle2Solved = true; 
+}
+
+// Function to handle clicking on button 3
+function pressButton3() {
+  console.log("Button 3 pressed!");
+  // Change the color of the sphere
+  sphere1.setAttribute('color', '#0000FF'); // Set color to blue
+  sphere2.setAttribute('color', '#00FF00'); // Set color to green
+  sphere3.setAttribute('color', '#FF0000'); // Set color to red
+  // Check if the colors match the target
+  if (sphere1.getAttribute('color') === colorTarget.getAttribute('color')) {
+    puzzle3Solved = true;
+  }
 }
 
 // Add event listeners for clicking on the key and door
 key.addEventListener('click', pickUpKey);
 lockedDoor.addEventListener('click', unlockDoor);
-button.addEventListener('click', pressButton);
+button1.addEventListener('click', pressButton1);
+button2.addEventListener('click', pressButton2);
+button3.addEventListener('click', pressButton3);
 
 // Event listener for player clicking on the key
 player.addEventListener('click', function (event) {
-  if (event.detail.intersectedEl.id === 'key') {
+  if (event.detail.intersectedEl.id === 'key' || event.detail.intersectedEl.id === 'hiddenKey') {
     pickUpKey();
   }
 });
