@@ -7,37 +7,78 @@ a-scene {
   background-color: #f0f0f0;
 }
 
-a-box {
-  animation: spin 10s linear infinite;
-}
-
-a-sphere {
-  animation: bounce 5s ease-in-out infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(0.5);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 /* Skybox Styling */
 .sky {
   background-color: #f0f0f0;
   opacity: 0.5;
+}
+
+/* Example Texture Styles */
+#roomTexture {
+  /* Make the room walls look like rough concrete */
+  roughness: 0.8;
+  metalness: 0.1;
+}
+
+#doorTexture {
+  /* Give the door a metallic look */
+  metalness: 0.8;
+  roughness: 0.2;
+}
+
+#keyTexture {
+  /* Make the key look like polished metal */
+  metalness: 1;
+  roughness: 0.1;
+}
+
+#cylinderTexture {
+  /* Give the cylinder a wooden texture */
+  roughness: 0.6;
+  metalness: 0;
+  color: #804000; /* Set the base color to a brown shade */
+}
+
+#buttonTexture {
+  /* Make the buttons look like red plastic */
+  color: #FF0000;
+  roughness: 0.5;
+  metalness: 0;
+}
+
+#leverTexture {
+  /* Give the lever a metal texture */
+  metalness: 0.7;
+  roughness: 0.3;
+}
+
+#knobTexture {
+  /* Make the knob look like polished metal */
+  metalness: 1;
+  roughness: 0.1;
+}
+
+#targetTexture {
+  /* Make the target look like a smooth surface */
+  roughness: 0.1;
+  metalness: 0;
+}
+
+#sphereTexture {
+  /* Make the spheres look like polished glass */
+  roughness: 0.1;
+  metalness: 0.1;
+  opacity: 0.8;
+}
+
+#codeLockTexture {
+  /* Make the code lock look like rusty metal */
+  roughness: 0.8;
+  metalness: 0.3;
+}
+
+#cardBackTexture {
+  /* Make the card back look like textured cardboard */
+  roughness: 0.6;
+  metalness: 0;
 }
