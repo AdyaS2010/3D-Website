@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -8,7 +7,6 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
-
 <body>
   <a-scene>
     <a-sky color="#000080"></a-sky>  <!-- Dark blue sky -->
@@ -31,8 +29,8 @@
       <a-cylinder radius="0.3" height="1" color="#00ff00"></a-cylinder>
     </a-entity>
     <a-box position="1 1 -2" width="0.5" height="0.5" depth="0.2" color="#FF0000" id="button1">
-       <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
-     </a-box> 
+      <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
+    </a-box> 
 
     <!-- Puzzle 2:  Hidden Lever -->
     <a-entity id="lever" position="1.5 0.5 -3" rotation="0 0 0" scale="1 0.2 0.2">
@@ -40,13 +38,13 @@
       <a-sphere radius="0.1" color="#FF0000" position="0.5 0 0"></a-sphere>
     </a-entity>
     <a-box position="-1 1 -2" width="0.5" height="0.5" depth="0.2" color="#FF0000" id="button2">
-       <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
-     </a-box> 
+      <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
+    </a-box> 
 
     <!-- Puzzle 3:  Color Matching -->
     <a-box position="-2 1 -2" width="0.5" height="0.5" depth="0.2" color="#FF0000" id="button3">
-       <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
-     </a-box> 
+      <a-text value="Press Me" position="0 0 0.1" color="white" align="center"></a-text>
+    </a-box> 
     <a-box position="0 0.5 -2" width="1" height="0.5" depth="0.2" color="#0000FF" id="colorTarget"></a-box>
     <a-entity id="colorMatch" position="-1 0 -3" rotation="0 0 0" scale="0.5 0.5 0.5">
       <a-sphere radius="0.2" color="#FF0000" id="sphere1"></a-sphere>
@@ -62,6 +60,15 @@
     <a-box position="0.5 0.2 -5" width="0.3" height="0.2" depth="0.1" color="#FF0000" id="codeButton">
       <a-text value="Enter" position="0 0 0.1" color="white" align="center"></a-text> 
     </a-box>
+
+    <!-- Puzzle 5: Memory Matching -->
+    <a-entity id="memoryGame" position="0 0.5 -4" rotation="0 0 0" scale="0.5 0.5 0.5">
+      <a-box position="0 0 0" width="0.5" height="0.5" depth="0.1" color="#888" id="memoryCard1"></a-box>
+      <a-box position="0.5 0 0" width="0.5" height="0.5" depth="0.1" color="#888" id="memoryCard2"></a-box>
+      <a-box position="0 -0.5 0" width="0.5" height="0.5" depth="0.1" color="#888" id="memoryCard3"></a-box>
+      <a-box position="0.5 -0.5 0" width="0.5" height="0.5" depth="0.1" color="#888" id="memoryCard4"></a-box>
+    </a-entity>
+    <a-text value="Memory Game: Find Matching Pairs" position="-0.5 1 -4" color="white"></a-text>
 
     <!-- Floor and Walls -->
     <a-entity position="0 1.5 0" rotation="0 90 0">
@@ -82,5 +89,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
