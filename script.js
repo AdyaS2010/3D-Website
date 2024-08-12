@@ -57,6 +57,9 @@ function unlockDoor() {
     // Optionally provide feedback to the player 
     console.log("The door is unlocked!");
 
+    // Play unlock sound
+    lockedDoor.components.sound.playSound();
+
     // Display escape message
     escapeMessage.setAttribute('value', 'You Escaped!');
     escapeMessage.setAttribute('position', '0 2 -2');
@@ -75,6 +78,8 @@ function pressButton1() {
   // Rotate the cylinder
   rotatingObject.setAttribute('animation', 'property: rotation; to: 0 360 0; dur: 5000; easing: linear; loop: true'); 
   puzzle1Solved = true; 
+  // Play button click sound
+  button1.components.sound.playSound();
 }
 
 // Function to handle clicking on button 2
@@ -83,6 +88,8 @@ function pressButton2() {
   // Move the lever up
   lever.setAttribute('position', '1.5 1 -3'); 
   puzzle2Solved = true; 
+  // Play lever sound
+  lever.components.sound.playSound();
 }
 
 // Function to handle clicking on button 3
@@ -96,6 +103,8 @@ function pressButton3() {
   if (sphere1.getAttribute('color') === colorTarget.getAttribute('color')) {
     puzzle3Solved = true;
   }
+  // Play button click sound
+  button3.components.sound.playSound();
 }
 
 // Function to handle clicking on the code button
@@ -109,6 +118,8 @@ function enterCode() {
     // Provide feedback that the code is incorrect (e.g., shake the code lock)
     console.log("Incorrect code!");
   }
+  // Play button click sound
+  codeButton.components.sound.playSound();
 }
 
 // Function to handle memory card clicks
