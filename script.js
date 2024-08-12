@@ -18,6 +18,10 @@ const codeLock = document.querySelector('#codeLock');
 const codeInput = document.querySelector('#codeInput');
 const codeButton = document.querySelector('#codeButton');
 const escapeMessage = document.createElement('a-text'); 
+const memoryCard1 = document.querySelector('#memoryCard1');
+const memoryCard2 = document.querySelector('#memoryCard2');
+const memoryCard3 = document.querySelector('#memoryCard3');
+const memoryCard4 = document.querySelector('#memoryCard4');
 
 // Check if the key is picked up 
 let hasKey = false;
@@ -25,6 +29,11 @@ let puzzle1Solved = false;
 let puzzle2Solved = false;
 let puzzle3Solved = false;
 let puzzle4Solved = false;
+let puzzle5Solved = false; // For Memory Matching
+let memoryCard1Flipped = false; 
+let memoryCard2Flipped = false;
+let memoryCard3Flipped = false;
+let memoryCard4Flipped = false;
 
 // Function to handle clicking on the key
 function pickUpKey() {
@@ -41,7 +50,7 @@ function pickUpKey() {
 // Function to handle clicking on the door
 function unlockDoor() {
   // Check if the player has the key and the puzzle is solved
-  if (hasKey && puzzle1Solved && puzzle2Solved && puzzle3Solved && puzzle4Solved) {
+  if (hasKey && puzzle1Solved && puzzle2Solved && puzzle3Solved && puzzle4Solved && puzzle5Solved) {
     // Open the door 
     lockedDoor.setAttribute('color', '#00FF00'); 
 
@@ -102,6 +111,20 @@ function enterCode() {
   }
 }
 
+// Function to handle memory card clicks
+function flipMemoryCard(card) {
+  if (card.getAttribute('color') === '#888') { // If card is not flipped
+    // ... (Implementation to flip the card and reveal an image or symbol)
+    // Update the card's color to the image color
+    // ...
+  } else {
+    // ... (Implementation to flip the card back to its original state)
+  }
+
+  // Check for matches and update the puzzle state
+  // ...
+}
+
 // Add event listeners for clicking on the key and door
 key.addEventListener('click', pickUpKey);
 lockedDoor.addEventListener('click', unlockDoor);
@@ -109,6 +132,11 @@ button1.addEventListener('click', pressButton1);
 button2.addEventListener('click', pressButton2);
 button3.addEventListener('click', pressButton3);
 codeButton.addEventListener('click', enterCode);
+
+memoryCard1.addEventListener('click', () => flipMemoryCard(memoryCard1));
+memoryCard2.addEventListener('click', () => flipMemoryCard(memoryCard2));
+memoryCard3.addEventListener('click', () => flipMemoryCard(memoryCard3));
+memoryCard4.addEventListener('click', () => flipMemoryCard(memoryCard4));
 
 // Event listener for player clicking on the key
 player.addEventListener('click', function (event) {
