@@ -114,15 +114,40 @@ function enterCode() {
 // Function to handle memory card clicks
 function flipMemoryCard(card) {
   if (card.getAttribute('color') === '#888') { // If card is not flipped
-    // ... (Implementation to flip the card and reveal an image or symbol)
-    // Update the card's color to the image color
-    // ...
+    card.setAttribute('color', card.getAttribute('data-symbol') === 'circle' ? 'red' : 'green'); // Reveal the symbol's color
+    if (card.id === 'memoryCard1') { memoryCard1Flipped = true; }
+    if (card.id === 'memoryCard2') { memoryCard2Flipped = true; }
+    if (card.id === 'memoryCard3') { memoryCard3Flipped = true; }
+    if (card.id === 'memoryCard4') { memoryCard4Flipped = true; }
+    checkMemoryMatch();
   } else {
-    // ... (Implementation to flip the card back to its original state)
+    card.setAttribute('color', '#888'); // Flip back to hidden
+    if (card.id === 'memoryCard1') { memoryCard1Flipped = false; }
+    if (card.id === 'memoryCard2') { memoryCard2Flipped = false; }
+    if (card.id === 'memoryCard3') { memoryCard3Flipped = false; }
+    if (card.id === 'memoryCard4') { memoryCard4Flipped = false; }
   }
+}
 
-  // Check for matches and update the puzzle state
-  // ...
+// Check for memory card matches
+function checkMemoryMatch() {
+  if (memoryCard1Flipped && memoryCard2Flipped && memoryCard3Flipped && memoryCard4Flipped) {
+    if ((memoryCard1.getAttribute('data-symbol') === memoryCard2.getAttribute('data-symbol')) &&
+        (memoryCard3.getAttribute('data-symbol') === memoryCard4.getAttribute('data-symbol'))) {
+      puzzle5Solved = true;
+      console.log("Memory Match Solved!");
+    } else {
+      console.log("Memory Match Incorrect!");
+      memoryCard1Flipped = false;
+      memoryCard2Flipped = false;
+      memoryCard3Flipped = false;
+      memoryCard4Flipped = false;
+      memoryCard1.setAttribute('color', '#888');
+      memoryCard2.setAttribute('color', '#888');
+      memoryCard3.setAttribute('color', '#888');
+      memoryCard4.setAttribute('color', '#888');
+    }
+  }
 }
 
 // Add event listeners for clicking on the key and door
