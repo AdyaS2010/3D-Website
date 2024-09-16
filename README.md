@@ -13,6 +13,10 @@ Welcome to **The Lost Laboratory**, a *VR Escape Room*! This immersive 3D experi
 ## Introduction
 **VR Escape Room: The Lost Laboratory** is a web-based virtual reality escape room game. Players must solve a series of puzzles to find hidden keys, unlock doors, and ultimately escape the laboratory. The game is designed to be both challenging and fun, providing an engaging experience for players of all ages.
 
+### Link & Picture
+https://mellow-capybara-ec19e0.netlify.app/ --> Deployment
+![image](https://github.com/user-attachments/assets/45344510-6092-478b-a59e-4a4eacf72cc4)
+
 ## Features
 - **Immersive 3D Environment**: Explore a detailed virtual laboratory with interactive elements.
 - **Challenging Puzzles**: Solve various puzzles, including rotating objects, hidden levers, color matching, and code locks.
