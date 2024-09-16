@@ -15,7 +15,9 @@ Welcome to **The Lost Laboratory**, a *VR Escape Room*! This immersive 3D experi
 
 ### Link & Picture
 https://mellow-capybara-ec19e0.netlify.app/ --> Deployment
+
 ![image](https://github.com/user-attachments/assets/45344510-6092-478b-a59e-4a4eacf72cc4)
+*Interface still in development - orientation and aesthetics to be expanded upon. Logic down (base)! 
 
 ## Features
 - **Immersive 3D Environment**: Explore a detailed virtual laboratory with interactive elements.
